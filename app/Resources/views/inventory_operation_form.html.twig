@@ -1,0 +1,24 @@
+
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block title %}Operation{% endblock %}
+
+{% block body %}
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{operation|upper}}: {{inventory.product.name}}</h1>
+            <h2>Current Quantity: {{inventory.quantity}}</h2>
+            <h2>Current Price: {{inventory.price}}</h2>
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'} }) }}
+                {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

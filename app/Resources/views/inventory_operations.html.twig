@@ -1,0 +1,100 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block body %}
+    
+    <div class="row">
+        <div class="col-xs-12">
+            
+        </div>
+    </div>
+    
+    
+    
+    <table class="table table-striped">
+        <thead> 
+            <tr> 
+                <th>Op.</th> 
+                <th>Product Name</th>
+                <th>Quantity</th> 
+                <th>Price</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr> 
+        </thead>
+        <tbody> 
+        {% for operation in operations %}
+            <tr >
+                <th>
+                    {% if operation.quantity < 0 %}
+                        OUT
+                    {% else %}    
+                        IN
+                    {% endif %}
+                </th>
+                <td>
+                    {{ operation.inventory.product.name }}
+                </td>
+                <td>
+                    {{ operation.quantity }}
+                </td>
+                <td>
+                    {{ operation.price }}
+                </td>
+                <td>
+                    {{ operation.date|date("d-M-Y H:i") }}
+                </td>
+                <td>
+                    <a href="#" data-href="/operation/delete/{{operation.id}}" class="btn btn-xs btn-danger delete-action"
+                       data-toggle="modal" data-target="#confirm-delete" data-id="{{operation.id}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        
+        
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <strong>Delete</strong>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this operation?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" data-id="" id="submit-delete" class="btn btn-danger btn-ok" >Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        /*We need a confirmation Modal before deletion*/
+        $( ".delete-action" ).on("click", function(e) {
+            e.preventDefault();
+            /*I pass the Id of the operation to the modal*/
+            $("#submit-delete").data("id",$(this).data("id"));
+            
+            /*Show the modal */
+{#            $('#confirm-delete').modal('show');#}
+            
+        });
+        
+        /* Redirect to Right Url to delete the right product. GET for now */
+        $( "#submit-delete" ).on("click", function(e) {
+            e.preventDefault();
+            var url = window.location.protocol + "//" + window.location.host+ "/operation/delete/" + $(this).data("id");
+            console.log(url);
+            window.location.href = url;
+        });
+    </script>
+{% endblock %}
+        
+   

@@ -1,0 +1,77 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ */
+class InventoryOperation
+{
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $quantity;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $description;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+    //We use a Many to One relationship because
+    //many Operations can be linked to one inventory
+    /**
+     * @ORM\ManyToOne(targetEntity="Inventory")
+     * @ORM\JoinColumn(name="inventory_id", referencedColumnName="id")
+     */
+    private $inventory;
+
+
+    public function __construct(){}
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+}

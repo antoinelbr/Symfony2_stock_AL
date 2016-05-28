@@ -1,0 +1,97 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block body %}
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="/product/add" class="btn btn-lg btn-primary" style="float:right;">
+                Add a Product
+            </a>
+        </div>
+    </div>
+    
+    
+    
+    <table class="table table-striped">
+        <thead> 
+            <tr> 
+                <th>#</th> 
+                <th>Product Name</th>
+                <th>Desc.</th> 
+                <th>Action</th>
+            </tr> 
+        </thead>
+        <tbody> 
+        {% for product in products %}
+            <tr>
+                <th>
+                    {{ product.id }}
+                </th>
+                <td>
+                    {{ product.name }}
+                </td>
+                <td>
+                    {{ product.description }}
+                </td>
+                <td>
+                    <a href="/product/edit/{{product.id}}" class="btn btn-xs btn-primary">Edit</a>
+                    
+                    <a href="#" data-href="/product/delete/{{product.id}}" class="btn btn-xs btn-danger delete-action"
+                       data-toggle="modal" data-target="#confirm-delete" data-id="{{product.id}}" data-name="{{product.name}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        
+        
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <strong>Delete</strong>
+                </div>
+                <div class="modal-body">
+                    Deleting the product <strong><span id="product-name-modal"></span></strong> will 
+                    permanently delete it's information and inventory.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" data-id="" id="submit-delete" class="btn btn-danger btn-ok" >Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        /*We need a confirmation Modal before deletion*/
+        $( ".delete-action" ).on("click", function(e) {
+            e.preventDefault();
+            var productName = $(this).data("name");
+            /* When we click on Delete button we pass the Product name to the Modal  */
+            $("#product-name-modal").empty().append(productName);
+            
+            /*I pass the Id of the product to the modal*/
+            $("#submit-delete").data("id",$(this).data("id"));
+            
+            /*Show the modal */
+{#            $('#confirm-delete').modal('show');#}
+            
+        });
+        
+        /* Redirect to Right Url to delete the right product. GET for now */
+        $( "#submit-delete" ).on("click", function(e) {
+            e.preventDefault();
+            var url = window.location.protocol + "//" + window.location.host+ "/product/delete/" + $(this).data("id");
+            console.log(url);
+            window.location.href = url;
+        });
+    </script>
+{% endblock %}
+        
+   

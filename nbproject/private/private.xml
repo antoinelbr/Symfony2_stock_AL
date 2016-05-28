@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/inventory_operations.html.twig</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/AppBundle.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/config/config.yml</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/config/services.yml</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Form/ProductType.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/products.html.twig</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/add_product_form.html.twig</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/inventory.html.twig</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Controller/InventoryController.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Entity/Inventory.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Controller/ProductController.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Controller/InventoryOperationController.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Entity/InventoryOperation.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Form/InventoryOperationType.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Entity/Product.php</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/inventory_operation_form.html.twig</file>
+        </group>
+    </open-files>
+</project-private>
