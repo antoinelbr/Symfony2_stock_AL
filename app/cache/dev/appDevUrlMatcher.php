@@ -135,6 +135,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'inventory_operation_out')), array (  '_controller' => 'AppBundle\\Controller\\InventoryOperationController::operationOutAction',));
             }
 
+            // inventory_operation_delete
+            if (0 === strpos($pathinfo, '/operation/delete') && preg_match('#^/operation/delete/(?P<operationId>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'inventory_operation_delete')), array (  '_controller' => 'AppBundle\\Controller\\InventoryOperationController::operationDeleteAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/product')) {

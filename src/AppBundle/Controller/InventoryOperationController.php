@@ -113,6 +113,30 @@ class InventoryOperationController extends Controller
 
     }
     
+    /**
+     * @Route("/operation/delete/{operationId}",name="inventory_operation_delete")
+     */
+    public function operationDeleteAction($operationId)
+    {
+        
+        $em = $this->getDoctrine()->getManager();
+        $operation = $em->getRepository('AppBundle:InventoryOperation')->find($operationId);
+        
+        if (!$operation) {
+            throw $this->createNotFoundException(
+                'No Operation found for id '.$operationId
+            );
+        }
+        //$inventory = $em->getRepository('AppBundle:Inventory')->findOneByProduct($productId);
+        
+        $em->remove($operation);
+        $em->flush();
+        
+        return $this->redirectToRoute('inventory_operations');
+        
+
+    }
+    
     
     
 }
