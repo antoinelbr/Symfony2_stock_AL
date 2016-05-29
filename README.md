@@ -1,7 +1,7 @@
 symfony2_stock_AL
 =================
 
-A Symfony 2.8 project.
+A Symfony 2.8 project, Doctrine, and twig.
 
 
 The project is composed of 3 Entities:
@@ -10,8 +10,19 @@ The project is composed of 3 Entities:
 * Inventory : An inventory is related to a single product and multiples Inventory Operations
 * InventoryOperation : An Inventory operation is an action of adding or removing products from the inventory
 
+the Business logic is located in: 
+* src/AppBundle/
 
-The Inventory price of a product is updated based on the price of the last products added for this inventory
+The views are located in:
+* app/Resources/views/
+
+The static files are located in:
+* web/
+
+The Mysql dump is: symfony_inventory.sql
+
+
+The Inventory price of a product is updated based on the price of the last products added in the inventory.
 
 
 Since it's a simple application I made the Delete actions over GET requests.

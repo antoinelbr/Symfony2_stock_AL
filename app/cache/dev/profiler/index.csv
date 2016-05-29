@@ -987,3 +987,7 @@ a3f368,127.0.0.1,GET,http://localhost:8000/operations,1464553294,,200
 e9bb31,127.0.0.1,GET,http://localhost:8000/inventory,1464553311,,200
 22f345,127.0.0.1,GET,http://localhost:8000/operation/out/10,1464553313,,200
 1b38a0,127.0.0.1,GET,http://localhost:8000/inventory,1464553317,,200
+42ec11,127.0.0.1,GET,http://localhost:8000/products,1464553996,,200
+c5c51d,127.0.0.1,GET,http://localhost:8000/products,1464554126,,200
+a7e266,127.0.0.1,GET,http://localhost:8000/product/delete/14,1464554133,00c15b,200
+00c15b,127.0.0.1,GET,http://localhost:8000/product/delete/14,1464554133,,500
