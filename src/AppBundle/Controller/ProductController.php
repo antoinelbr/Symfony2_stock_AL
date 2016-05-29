@@ -116,14 +116,18 @@ class ProductController extends Controller
     {
         
         $em = $this->getDoctrine()->getManager();
-        $product = $em->getRepository('AppBundle:Product')->find($productId);
+//        $product = $em->getRepository('AppBundle:Product')->find($productId);
         
-        if (!$product) {
+        //The inventory is related to a Product and its operations so we remove the inventory
+        //related to a product. With on deletion cascade is should remove the product and the operations
+        $inventory = $em->getRepository('AppBundle:Inventory')->findOneBy(array('product' => $product->getId()));
+        
+        if (!$inventory) {
             throw $this->createNotFoundException(
                 'No product found for id '.$productId
             );
         }
-        $inventory = $em->getRepository('AppBundle:Inventory')->findOneBy(array('product' => $product->getId()));
+        
         
         $em->remove($inventory);
         $em->flush();
