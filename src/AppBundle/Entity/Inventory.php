@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * The inventory keeps track of the number and the current price of a product
@@ -22,11 +23,13 @@ class Inventory
 
     /**
      * @ORM\Column(type="integer")
+     * 
      */
     private $quantity;
 
     /**
      * @ORM\Column(type="integer")
+     * 
      */
     private $price;
 

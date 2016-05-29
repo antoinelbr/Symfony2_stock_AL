@@ -74,6 +74,8 @@ class InventoryOperationController extends Controller
     }
     
     /**
+     * Add products in the Inventory
+     * 
      * @Route("/operation/out/{inventoryId}",name="inventory_operation_out")
      */
     public function operationOutAction($inventoryId, Request $request)
@@ -85,6 +87,7 @@ class InventoryOperationController extends Controller
         $inventory = $repository->find($inventoryId);
         
         $operation = new InventoryOperation($inventory);
+        $operation->setPrice($inventory->getPrice());
         
         $form = $this->createForm(InventoryOperationType::class, $operation);
         $form->add('submit', SubmitType::class, array(
@@ -105,6 +108,7 @@ class InventoryOperationController extends Controller
             return $this->redirectToRoute('inventory_operations');
         }
         
+        //Render the 
         return $this->render('inventory_operation_form.html.twig', array(
             'form' => $form->createView(),
             'inventory' => $inventory,
@@ -114,6 +118,9 @@ class InventoryOperationController extends Controller
     }
     
     /**
+     * Function called to delete an Operation
+     * It will adapt the price of the inventory based on the type of the operation
+     * 
      * @Route("/operation/delete/{operationId}",name="inventory_operation_delete")
      */
     public function operationDeleteAction($operationId)
@@ -136,21 +143,21 @@ class InventoryOperationController extends Controller
         
         //If it was a IN operation then we adjust the price based on the previous IN
         if($operation->getType() == "IN"){
-            //get the last inventory price and adjust it
+            //get the last inventory
             $lastOperation = $this->getDoctrine()
                     ->getRepository('AppBundle:InventoryOperation')
-                    ->findByLatestByInventoryId($operation->getInventory(),1);
-
+                    ->findByLatestByInventoryIdAnType($operation->getInventory(),"IN",1);
+            
+            //we Adjust the price only if there was a IN operation
             if($lastOperation){
                 $inventory->setPrice($lastOperation->getPrice());
-                
             }else{
                 $inventory->setPrice(0);
             }
             $em->flush();
         }
         
-        
+        //Return to the Inventory page
         return $this->redirectToRoute('inventory_operations');
         
 
