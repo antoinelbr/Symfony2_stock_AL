@@ -991,3 +991,9 @@ e9bb31,127.0.0.1,GET,http://localhost:8000/inventory,1464553311,,200
 c5c51d,127.0.0.1,GET,http://localhost:8000/products,1464554126,,200
 a7e266,127.0.0.1,GET,http://localhost:8000/product/delete/14,1464554133,00c15b,200
 00c15b,127.0.0.1,GET,http://localhost:8000/product/delete/14,1464554133,,500
+582021,127.0.0.1,GET,http://localhost:8000/,1464555611,,302
+46bb0c,127.0.0.1,GET,http://localhost:8000/inventory,1464555611,,200
+bdb2f3,127.0.0.1,GET,http://localhost:8000/products,1464555617,,200
+2a2048,127.0.0.1,GET,http://localhost:8000/product/add,1464555646,,200
+3a70c9,127.0.0.1,POST,http://localhost:8000/product/add,1464555660,,302
+a5a4e5,127.0.0.1,GET,http://localhost:8000/inventory,1464555660,,200

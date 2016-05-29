@@ -29,3 +29,11 @@ Since it's a simple application I made the Delete actions over GET requests.
 
 
 I have still put quite a lot of code in the controllers. It seems that Managers can be used and then transform the Manager as a Service but I kept it this way since it is a small application.
+
+
+# Instructions:
+
+- First, Click on "Product" in the Top bar menu -> click on "Add new Product" -> Create a new Product [By default an inventory of a product is quantity 0 and price 0]
+- To Add inventory for a product click on "IN"
+- To Remove inventory for a product click on "OUT"
+- The list of Operation "IN" and "OUT" are under the Operation Section.
