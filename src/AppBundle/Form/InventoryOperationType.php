@@ -11,7 +11,7 @@ class InventoryOperationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        //Product Form Builder
+        //Inventory Operation Form Builder
         $builder
             ->add('price', TextType::class)
             ->add('quantity', TextType::class)

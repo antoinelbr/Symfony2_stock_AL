@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
+ * The inventory keeps track of the number and the current price of a product
+ * 
  * @ORM\Entity
  */
 class Inventory
@@ -28,21 +30,33 @@ class Inventory
      */
     private $price;
 
-    //We use a OneToOne Relationship becase
-    //A product can have only one inventory 
+
     /**
+     * We use a OneToOne Relationship because
+     * A product can have only one inventory 
+     * 
      * @ORM\OneToOne(targetEntity="Product")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id",onDelete="CASCADE")
      */
     private $product;
     
     
     /**
+     * An Inventory is composed of multiple InventoryOperation 
+     * 
      * @ORM\OneToMany(targetEntity="InventoryOperation", mappedBy="inventory")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $inventoryOperations;
 
 
+    /**
+     * We always create an inventory on the creation of a product 
+     * The inventory of a product always has a price of 0
+     * and a quantity of 0 at its creation
+     * 
+     * @param \AppBundle\Entity\Product $product
+     */
     public function __construct(Product $product){
         $this->price = 0;
         $this->product = $product;
@@ -80,12 +94,6 @@ class Inventory
         return $this->product;
     }
 
-    /**
-     * Set product
-     *
-     * @param \AppBundle\Entity\Product $product
-     * @return Inventory
-     */
     public function setProduct(\AppBundle\Entity\Product $product = null)
     {
         $this->product = $product;
@@ -93,6 +101,18 @@ class Inventory
         return $this;
     }
 
+    
+    /**
+     * Get inventoryOperations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInventoryOperations()
+    {
+        return $this->inventoryOperations;
+    }
+    
+    
     /**
      * Add inventoryOperations
      *
@@ -116,13 +136,5 @@ class Inventory
         $this->inventoryOperations->removeElement($inventoryOperations);
     }
 
-    /**
-     * Get inventoryOperations
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getInventoryOperations()
-    {
-        return $this->inventoryOperations;
-    }
+
 }

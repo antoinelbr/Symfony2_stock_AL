@@ -96,8 +96,8 @@ class ProductController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
             
             return $this->redirectToRoute('products');
         }
@@ -123,9 +123,9 @@ class ProductController extends Controller
                 'No product found for id '.$productId
             );
         }
-        //$inventory = $em->getRepository('AppBundle:Inventory')->findOneByProduct($productId);
+        $inventory = $em->getRepository('AppBundle:Inventory')->findOneBy(array('product' => $product->getId()));
         
-        $em->remove($product);
+        $em->remove($inventory);
         $em->flush();
         
         return $this->redirectToRoute('products');

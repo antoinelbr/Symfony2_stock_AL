@@ -257,6 +257,17 @@ class Inventory extends \AppBundle\Entity\Inventory implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
+    public function getInventoryOperations()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInventoryOperations', array());
+
+        return parent::getInventoryOperations();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function addInventoryOperation(\AppBundle\Entity\InventoryOperation $inventoryOperations)
     {
 
@@ -274,17 +285,6 @@ class Inventory extends \AppBundle\Entity\Inventory implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeInventoryOperation', array($inventoryOperations));
 
         return parent::removeInventoryOperation($inventoryOperations);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getInventoryOperations()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInventoryOperations', array());
-
-        return parent::getInventoryOperations();
     }
 
 }

@@ -28,11 +28,7 @@
         {% for operation in operations %}
             <tr >
                 <th>
-                    {% if operation.quantity < 0 %}
-                        OUT
-                    {% else %}    
-                        IN
-                    {% endif %}
+                    {{ operation.type }}
                 </th>
                 <td>
                     {{ operation.inventory.product.name }}

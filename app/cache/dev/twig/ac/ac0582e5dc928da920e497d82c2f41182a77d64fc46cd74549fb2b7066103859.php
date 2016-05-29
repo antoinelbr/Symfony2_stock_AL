@@ -23,32 +23,32 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e527372e42511d48b729e92ec9328b68388d5758c19b44b92fdec02adc9132a7 = $this->env->getExtension("native_profiler");
-        $__internal_e527372e42511d48b729e92ec9328b68388d5758c19b44b92fdec02adc9132a7->enter($__internal_e527372e42511d48b729e92ec9328b68388d5758c19b44b92fdec02adc9132a7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "inventory_operations.html.twig"));
+        $__internal_b62bf917e1e5f32ae38f4c10d533e68d7ca11a90bcf90794de0dd671718235c4 = $this->env->getExtension("native_profiler");
+        $__internal_b62bf917e1e5f32ae38f4c10d533e68d7ca11a90bcf90794de0dd671718235c4->enter($__internal_b62bf917e1e5f32ae38f4c10d533e68d7ca11a90bcf90794de0dd671718235c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "inventory_operations.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_e527372e42511d48b729e92ec9328b68388d5758c19b44b92fdec02adc9132a7->leave($__internal_e527372e42511d48b729e92ec9328b68388d5758c19b44b92fdec02adc9132a7_prof);
+        $__internal_b62bf917e1e5f32ae38f4c10d533e68d7ca11a90bcf90794de0dd671718235c4->leave($__internal_b62bf917e1e5f32ae38f4c10d533e68d7ca11a90bcf90794de0dd671718235c4_prof);
 
     }
 
     // line 4
     public function block_title($context, array $blocks = array())
     {
-        $__internal_9aedee7a6a6ce4314f08e74a95a8a219faf3bc0ca30c9cc5bf5d02f41f988162 = $this->env->getExtension("native_profiler");
-        $__internal_9aedee7a6a6ce4314f08e74a95a8a219faf3bc0ca30c9cc5bf5d02f41f988162->enter($__internal_9aedee7a6a6ce4314f08e74a95a8a219faf3bc0ca30c9cc5bf5d02f41f988162_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_b77a01d2983c1095caa5c80806403c2e17e0272faf533f435cb1ac6111e01735 = $this->env->getExtension("native_profiler");
+        $__internal_b77a01d2983c1095caa5c80806403c2e17e0272faf533f435cb1ac6111e01735->enter($__internal_b77a01d2983c1095caa5c80806403c2e17e0272faf533f435cb1ac6111e01735_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Product List";
         
-        $__internal_9aedee7a6a6ce4314f08e74a95a8a219faf3bc0ca30c9cc5bf5d02f41f988162->leave($__internal_9aedee7a6a6ce4314f08e74a95a8a219faf3bc0ca30c9cc5bf5d02f41f988162_prof);
+        $__internal_b77a01d2983c1095caa5c80806403c2e17e0272faf533f435cb1ac6111e01735->leave($__internal_b77a01d2983c1095caa5c80806403c2e17e0272faf533f435cb1ac6111e01735_prof);
 
     }
 
     // line 6
     public function block_body($context, array $blocks = array())
     {
-        $__internal_f2fb28a1940944f4245bd979a2e9ec61ace6aae0d115464a24f563f5e417c183 = $this->env->getExtension("native_profiler");
-        $__internal_f2fb28a1940944f4245bd979a2e9ec61ace6aae0d115464a24f563f5e417c183->enter($__internal_f2fb28a1940944f4245bd979a2e9ec61ace6aae0d115464a24f563f5e417c183_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_9a7c0abb96d3f919ab01c6a37f97ebf4436d056501e465998441803a0cc360ad = $this->env->getExtension("native_profiler");
+        $__internal_9a7c0abb96d3f919ab01c6a37f97ebf4436d056501e465998441803a0cc360ad->enter($__internal_9a7c0abb96d3f919ab01c6a37f97ebf4436d056501e465998441803a0cc360ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
         echo "    
@@ -82,49 +82,40 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
                 <th>
                     ";
             // line 31
-            if (($this->getAttribute($context["operation"], "quantity", array()) < 0)) {
-                // line 32
-                echo "                        OUT
-                    ";
-            } else {
-                // line 33
-                echo "    
-                        IN
-                    ";
-            }
-            // line 36
-            echo "                </th>
+            echo twig_escape_filter($this->env, $this->getAttribute($context["operation"], "type", array()), "html", null, true);
+            echo "
+                </th>
                 <td>
                     ";
-            // line 38
+            // line 34
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["operation"], "inventory", array()), "product", array()), "name", array()), "html", null, true);
             echo "
                 </td>
                 <td>
                     ";
-            // line 41
+            // line 37
             echo twig_escape_filter($this->env, $this->getAttribute($context["operation"], "quantity", array()), "html", null, true);
             echo "
                 </td>
                 <td>
                     ";
-            // line 44
+            // line 40
             echo twig_escape_filter($this->env, $this->getAttribute($context["operation"], "price", array()), "html", null, true);
             echo "
                 </td>
                 <td>
                     ";
-            // line 47
+            // line 43
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["operation"], "date", array()), "d-M-Y H:i"), "html", null, true);
             echo "
                 </td>
                 <td>
                     <a href=\"#\" data-href=\"/operation/delete/";
-            // line 50
+            // line 46
             echo twig_escape_filter($this->env, $this->getAttribute($context["operation"], "id", array()), "html", null, true);
             echo "\" class=\"btn btn-xs btn-danger delete-action\"
                        data-toggle=\"modal\" data-target=\"#confirm-delete\" data-id=\"";
-            // line 51
+            // line 47
             echo twig_escape_filter($this->env, $this->getAttribute($context["operation"], "id", array()), "html", null, true);
             echo "\">Delete</a>
                 </td>
@@ -134,7 +125,7 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['operation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 55
+        // line 51
         echo "        </tbody>
     </table>
         
@@ -157,17 +148,17 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
     </div>
 ";
         
-        $__internal_f2fb28a1940944f4245bd979a2e9ec61ace6aae0d115464a24f563f5e417c183->leave($__internal_f2fb28a1940944f4245bd979a2e9ec61ace6aae0d115464a24f563f5e417c183_prof);
+        $__internal_9a7c0abb96d3f919ab01c6a37f97ebf4436d056501e465998441803a0cc360ad->leave($__internal_9a7c0abb96d3f919ab01c6a37f97ebf4436d056501e465998441803a0cc360ad_prof);
 
     }
 
-    // line 77
+    // line 73
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_17f52682a03811b32135891080eb174c463432d5a8411b005923e7b30e937841 = $this->env->getExtension("native_profiler");
-        $__internal_17f52682a03811b32135891080eb174c463432d5a8411b005923e7b30e937841->enter($__internal_17f52682a03811b32135891080eb174c463432d5a8411b005923e7b30e937841_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_5b96311a7a6bd1be213af0819c566d5e56c970aa336d8ffbafb10e5810a6e78b = $this->env->getExtension("native_profiler");
+        $__internal_5b96311a7a6bd1be213af0819c566d5e56c970aa336d8ffbafb10e5810a6e78b->enter($__internal_5b96311a7a6bd1be213af0819c566d5e56c970aa336d8ffbafb10e5810a6e78b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 78
+        // line 74
         echo "    <script>
         /*We need a confirmation Modal before deletion*/
         \$( \".delete-action\" ).on(\"click\", function(e) {
@@ -177,7 +168,7 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
             
             /*Show the modal */
 ";
-        // line 87
+        // line 83
         echo "            
         });
         
@@ -191,7 +182,7 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
     </script>
 ";
         
-        $__internal_17f52682a03811b32135891080eb174c463432d5a8411b005923e7b30e937841->leave($__internal_17f52682a03811b32135891080eb174c463432d5a8411b005923e7b30e937841_prof);
+        $__internal_5b96311a7a6bd1be213af0819c566d5e56c970aa336d8ffbafb10e5810a6e78b->leave($__internal_5b96311a7a6bd1be213af0819c566d5e56c970aa336d8ffbafb10e5810a6e78b_prof);
 
     }
 
@@ -207,7 +198,7 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
 
     public function getDebugInfo()
     {
-        return array (  181 => 87,  171 => 78,  165 => 77,  138 => 55,  128 => 51,  124 => 50,  118 => 47,  112 => 44,  106 => 41,  100 => 38,  96 => 36,  91 => 33,  87 => 32,  85 => 31,  81 => 29,  77 => 28,  54 => 7,  48 => 6,  36 => 4,  11 => 2,);
+        return array (  172 => 83,  162 => 74,  156 => 73,  129 => 51,  119 => 47,  115 => 46,  109 => 43,  103 => 40,  97 => 37,  91 => 34,  85 => 31,  81 => 29,  77 => 28,  54 => 7,  48 => 6,  36 => 4,  11 => 2,);
     }
 }
 /* */
@@ -240,11 +231,7 @@ class __TwigTemplate_6353a00a4e0ec452f9f20ed0228d7ec786db9a9d107f55ebbdeb93c84ac
 /*         {% for operation in operations %}*/
 /*             <tr >*/
 /*                 <th>*/
-/*                     {% if operation.quantity < 0 %}*/
-/*                         OUT*/
-/*                     {% else %}    */
-/*                         IN*/
-/*                     {% endif %}*/
+/*                     {{ operation.type }}*/
 /*                 </th>*/
 /*                 <td>*/
 /*                     {{ operation.inventory.product.name }}*/
