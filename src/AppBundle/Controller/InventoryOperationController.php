@@ -23,8 +23,8 @@ class InventoryOperationController extends Controller
         
         $repository = $this->getDoctrine()->getRepository('AppBundle:InventoryOperation');
         
-        // find *all* products
-        $operations = $repository->findAll();
+        // find *all* operations for the published products
+        $operations = $repository->findByProductPublished(true);
         
         return $this->render('inventory_operations.html.twig', array(
             'operations' => $operations,

@@ -23,7 +23,8 @@ class ProductController extends Controller
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
         
         // find *all* products
-        $products = $repository->findAll();
+        //$products = $repository->findAll();
+        $products = $repository->findByPublished(true);
         
         return $this->render('products.html.twig', array(
             'products' => $products,
@@ -52,6 +53,7 @@ class ProductController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $entityManager = $this->getDoctrine()->getManager();
+            $product->setPublished(true);
             $entityManager->persist($product);            
             
             //We create an inventory for this new product
@@ -116,21 +118,17 @@ class ProductController extends Controller
     {
         
         $em = $this->getDoctrine()->getManager();
-//        $product = $em->getRepository('AppBundle:Product')->find($productId);
+        $product = $em->getRepository('AppBundle:Product')->find($productId);
         
-        //The inventory is related to a Product and its operations so we remove the inventory
-        //related to a product. With on deletion cascade is should remove the product and the operations
-        $inventory = $em->getRepository('AppBundle:Inventory')->findOneBy(array('product' => $product->getId()));
-        
-        if (!$inventory) {
+        if (!$product) {
             throw $this->createNotFoundException(
                 'No product found for id '.$productId
             );
         }
-        
-        
-        $em->remove($inventory);
+        //We don't remove the product we will just mark it as deleted
+        $product->setPublished(false);
         $em->flush();
+        
         
         return $this->redirectToRoute('products');
         

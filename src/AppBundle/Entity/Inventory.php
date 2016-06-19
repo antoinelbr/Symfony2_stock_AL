@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * The inventory keeps track of the quantity and the current price of a product
  * 
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\InventoryRepository")
  */
 class Inventory
 {
@@ -38,7 +38,7 @@ class Inventory
      * A product can have only one inventory 
      * 
      * @ORM\OneToOne(targetEntity="Product")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id",onDelete="CASCADE")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
     private $product;
     
@@ -47,7 +47,6 @@ class Inventory
      * An Inventory is composed of multiple InventoryOperation 
      * 
      * @ORM\OneToMany(targetEntity="InventoryOperation", mappedBy="inventory")
-     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $inventoryOperations;
 

@@ -31,6 +31,11 @@ class Product
      */
     private $description;
     
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $published;
+    
     public function __construct(){}
 
     public function getId()
@@ -56,6 +61,16 @@ class Product
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+    
+    public function isPublished()
+    {
+        return $this->published;
+    }
+
+    public function setPublished($published)
+    {
+        $this->published = $published;
     }
 
 }

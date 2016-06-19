@@ -64,10 +64,10 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'description');
+            return array('__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'published');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'description');
+        return array('__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'description', '' . "\0" . 'AppBundle\\Entity\\Product' . "\0" . 'published');
     }
 
     /**
@@ -230,6 +230,28 @@ class Product extends \AppBundle\Entity\Product implements \Doctrine\ORM\Proxy\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
 
         return parent::setDescription($description);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isPublished()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isPublished', array());
+
+        return parent::isPublished();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPublished($published)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPublished', array($published));
+
+        return parent::setPublished($published);
     }
 
 }

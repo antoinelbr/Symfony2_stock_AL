@@ -16,8 +16,9 @@ class InventoryController extends Controller
         
         $repository = $this->getDoctrine()->getRepository('AppBundle:Inventory');
         
-        // find *all* products
-        $inventories = $repository->findAll();
+        // find *all* inventories which has a published Product
+        // $inventories = $repository->findAll();
+        $inventories = $repository->findByProductPublished(true);
         
         return $this->render('inventory.html.twig', array(
             'inventories' => $inventories,

@@ -7,7 +7,9 @@
             <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Controller/DefaultController.php</file>
             <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/AppBundle.php</file>
             <file>file:/C:/xampp/symfony2_stock_AL/app/config/config.yml</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Repository/InventoryOperationRepository.php</file>
             <file>file:/C:/xampp/symfony2_stock_AL/app/config/services.yml</file>
+            <file>file:/C:/xampp/symfony2_stock_AL/README.md</file>
             <file>file:/C:/xampp/symfony2_stock_AL/src/AppBundle/Form/ProductType.php</file>
             <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/products.html.twig</file>
             <file>file:/C:/xampp/symfony2_stock_AL/app/Resources/views/add_product_form.html.twig</file>
