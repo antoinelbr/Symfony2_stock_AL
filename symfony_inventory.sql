@@ -78,7 +78,8 @@ INSERT INTO `inventory_operation` (`id`, `quantity`, `price`, `description`, `da
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `published` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -86,9 +87,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`) VALUES
-(12, 'Hammer', 'Hammer SKU:2143243223'),
-(13, 'Drill', 'Drill Bosch SKU:9823642132'),
-(14, 'Mower', 'Mower SKU:5432543643');
+(12, 'Hammer', 'Hammer SKU:2143243223',1),
+(13, 'Drill', 'Drill Bosch SKU:9823642132',1),
+(14, 'Mower', 'Mower SKU:5432543643',1);
 
 --
 -- Indexes for dumped tables
