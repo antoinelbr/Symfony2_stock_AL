@@ -99,6 +99,24 @@ class InventoryOperationController extends Controller
         
         if ($form->isSubmitted() && $form->isValid()) {
             
+            //Now we do the validation to see if the number of product in the inventory is sufficient
+            //I would have prefered to send an error in the form on the quantity field but I
+            //did not find the way to do it yet
+            if(($inventory->getQuantity() - $operation->getQuantity())<0){
+                $request->getSession()
+                ->getFlashBag()
+                ->add('error', "The number of product OUT must be inferior "
+                        . "or equal to the number of the product in the inventory");
+            
+                return $this->render('inventory_operation_form.html.twig', array(
+                    'form' => $form->createView(),
+                    'inventory' => $inventory,
+                    'operation' => 'out'
+                ));
+                
+            }
+
+            //If everything is ok then we create the operation
             $operation->outOperation();
             
             $em = $this->getDoctrine()->getManager();
@@ -108,7 +126,7 @@ class InventoryOperationController extends Controller
             return $this->redirectToRoute('inventory_operations');
         }
         
-        //Render the 
+        //Render the form
         return $this->render('inventory_operation_form.html.twig', array(
             'form' => $form->createView(),
             'inventory' => $inventory,

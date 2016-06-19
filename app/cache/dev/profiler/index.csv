@@ -1041,3 +1041,9 @@ f8240b,127.0.0.1,GET,http://localhost:8000/operations,1466347549,7fe3d2,200
 530dac,127.0.0.1,GET,http://localhost:8000/operations,1466347657,,200
 771b94,127.0.0.1,GET,http://localhost:8000/operations,1466347675,,200
 eba98d,127.0.0.1,GET,http://localhost:8000/products,1466347679,,200
+3794e5,127.0.0.1,GET,http://localhost:8000/inventory,1466348767,,200
+6ce4b6,127.0.0.1,GET,http://localhost:8000/operation/out/9,1466348823,,200
+9e662c,127.0.0.1,POST,http://localhost:8000/operation/out/9,1466348843,,200
+229050,127.0.0.1,POST,http://localhost:8000/operation/out/9,1466349078,,302
+2c6f84,127.0.0.1,GET,http://localhost:8000/operations,1466349081,,200
+d35a08,127.0.0.1,GET,http://localhost:8000/inventory,1466349089,,200

@@ -6,6 +6,14 @@
 
 {% block body %}
     
+    {% if app.session.flashBag.has('error') %}
+        <div class="alert alert-danger">
+            {% for msg in app.session.flashBag.get('error') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
     <div class="row">
         <div class="col-xs-12">
             <h1>{{operation|upper}}: {{inventory.product.name}}</h1>
